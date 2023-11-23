@@ -194,25 +194,32 @@ export const ProductList: React.FC = () => {
               </div>
             </IonCol>
           </IonRow>
-          <IonRow>
-            <div style={{ marginTop: 16 }}>
-              <IonSegment
-                scrollable
-                value={'burger'}
-                className='segment-active product-segment '
-                style={{ display: 'flex', gap: 8, overflowX: 'auto' }}
+          <IonRow style={{ marginTop: 16 }}>
+            <IonSegment
+              scrollable={true}
+              value={'burger'}
+              className='segment-active product-segment '
+              style={{ display: 'flex', gap: 8, overflowX: 'auto' }}
+            >
+              <IonSegmentButton style={{ minWidth: '131px' }} value='burger'>
+                <IonLabel>Burger</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton style={{ minWidth: '131px' }} value='pizza'>
+                <IonLabel>Pizza</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton style={{ minWidth: '131px' }} value='hot-dog'>
+                <IonLabel>Hot Dog</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton style={{ minWidth: '131px' }} value='hot-dogas'>
+                <IonLabel>Hot Dog</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton
+                style={{ minWidth: '131px' }}
+                value='hot-dogaasds'
               >
-                <IonSegmentButton value='burger'>
-                  <IonLabel>Burger</IonLabel>
-                </IonSegmentButton>
-                <IonSegmentButton value='pizza'>
-                  <IonLabel>Pizza</IonLabel>
-                </IonSegmentButton>
-                <IonSegmentButton value='hot-dog'>
-                  <IonLabel>Hot Dog</IonLabel>
-                </IonSegmentButton>
-              </IonSegment>
-            </div>
+                <IonLabel>Hot Dog</IonLabel>
+              </IonSegmentButton>
+            </IonSegment>
           </IonRow>
         </IonGrid>
       </IonContent>
