@@ -1,0 +1,27 @@
+.product-list-toolbar {
+  align-items: center;
+}
+
+ion-searchbar .searchbar-input-container {
+  --background: rgb(255, 233, 233);
+}
+
+.product-segment {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.product-segment ion-segment-button {
+  --background-checked: red !important;
+  --color-checked: white !important;
+  height: 45px;
+  width: 161px;
+}
+
+.product-segment ion-segment-button {
+  border: 1px solid red;
+}
+
+.segment-active ion-segment-button.segment-button-checked .segment-indicator {
+  background-color: rgb(245, 0, 18);
+}
