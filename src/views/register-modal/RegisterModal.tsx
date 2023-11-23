@@ -8,16 +8,18 @@ import {
   IonToolbar,
   IonTitle,
   IonItem,
-  IonCheckbox,
   IonInput,
-  IonCol,
   IonLabel,
   IonRow,
+  IonCol,
   IonIcon,
   IonText,
+  IonSegment,
+  IonSegmentButton,
 } from '@ionic/react';
 import './RegisterModal.css';
 import { logoGoogle } from 'ionicons/icons';
+import { useHistory } from 'react-router';
 
 interface ExampleProps {
   closeModal: () => void;
@@ -30,6 +32,8 @@ function Example({ closeModal }: ExampleProps) {
   const [presentingElement, setPresentingElement] = useState<
     HTMLElement | undefined
   >(undefined);
+  const [currentTab, setCurrentTab] = useState('sign-up');
+  const history = useHistory();
 
   useEffect(() => {
     modal.current?.present();
@@ -41,18 +45,20 @@ function Example({ closeModal }: ExampleProps) {
 
   function dismiss() {
     setCanDismiss(false);
-
-    // Ждем некоторое время перед вызовом closeModal
     setTimeout(() => {
       modal.current?.dismiss();
       closeModal();
-    }, 300); // Задайте тот же период, что и в CSS анимации
+    }, 300);
   }
+
+  const navigateProfile = () => {
+    history.push('/profile');
+    closeModal();
+  };
 
   return (
     <IonModal
       ref={modal}
-      //   cssClass='modal-custom' // Добавьте свой класс стилей
       cssClass={`modal-custom ${canDismiss ? '' : 'modal-hidden'}`}
       canDismiss={canDismiss}
       presentingElement={presentingElement}
@@ -67,6 +73,20 @@ function Example({ closeModal }: ExampleProps) {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonSegment
+          value={currentTab}
+          onIonChange={(e) => setCurrentTab(e.detail.value!)}
+          className='segment-active'
+        >
+          <IonSegmentButton value='sign-up'>
+            <IonLabel>Create Account</IonLabel>
+            <div className='segment-indicator'></div>
+          </IonSegmentButton>
+          <IonSegmentButton value='login'>
+            <IonLabel>Login</IonLabel>
+            <div className='segment-indicator'></div>
+          </IonSegmentButton>
+        </IonSegment>
         <div
           style={{
             display: 'flex',
@@ -75,65 +95,103 @@ function Example({ closeModal }: ExampleProps) {
             height: '80%',
           }}
         >
-          <div>
-            <IonItem lines='none'>
-              <IonLabel>Full Name</IonLabel>
-            </IonItem>
-            <IonItem lines='none'>
-              <input
-                placeholder='Full Name'
-                style={{
-                  width: '100%',
-                  height: '48px',
-                  borderRadius: '8px',
-                  border: '1px solid rgb(218, 218, 218)',
-                  padding: '12px',
-                  boxSizing: 'border-box',
-                }}
-                type='text'
-              />
-            </IonItem>
-            <IonItem lines='none'>
-              <IonLabel>Email address</IonLabel>
-            </IonItem>
-            <IonItem lines='none'>
-              <input
-                placeholder='Email Address'
-                style={{
-                  width: '100%',
-                  height: '48px',
-                  borderRadius: '8px',
-                  border: '1px solid rgb(218, 218, 218)',
-                  padding: '12px',
-                  boxSizing: 'border-box',
-                }}
-                type='email'
-              />
-            </IonItem>
-            <IonItem lines='none'>
-              <IonLabel>Password</IonLabel>
-            </IonItem>
-            <IonItem lines='none'>
-              <input
-                placeholder='Password'
-                style={{
-                  width: '100%',
-                  height: '48px',
-                  borderRadius: '8px',
-                  border: '1px solid rgb(218, 218, 218)',
-                  padding: '12px',
-                  boxSizing: 'border-box',
-                }}
-                type='password'
-              />
-            </IonItem>
-          </div>
+          {(currentTab === 'sign-up' || currentTab === 'login') && (
+            <div>
+              <IonItem lines='none'>
+                <IonLabel>
+                  {currentTab === 'sign-up' ? 'Full Name' : 'Email address'}
+                </IonLabel>
+              </IonItem>
+              <IonItem lines='none'>
+                <input
+                  placeholder={
+                    currentTab === 'sign-up' ? 'Full Name' : 'Email Address'
+                  }
+                  style={{
+                    width: '100%',
+                    height: '48px',
+                    borderRadius: '8px',
+                    border: '1px solid rgb(218, 218, 218)',
+                    padding: '12px',
+                    boxSizing: 'border-box',
+                  }}
+                  type={currentTab === 'sign-up' ? 'text' : 'email'}
+                />
+              </IonItem>
+              {currentTab === 'sign-up' && (
+                <>
+                  <IonItem lines='none'>
+                    <IonLabel>Email address</IonLabel>
+                  </IonItem>
+                  <IonItem lines='none'>
+                    <input
+                      placeholder='Email Address'
+                      style={{
+                        width: '100%',
+                        height: '48px',
+                        borderRadius: '8px',
+                        border: '1px solid rgb(218, 218, 218)',
+                        padding: '12px',
+                        boxSizing: 'border-box',
+                      }}
+                      type='email'
+                    />
+                  </IonItem>
+                  <IonItem lines='none'>
+                    <IonLabel>Password</IonLabel>
+                  </IonItem>
+                  <IonItem lines='none'>
+                    <input
+                      placeholder='Password'
+                      style={{
+                        width: '100%',
+                        height: '48px',
+                        borderRadius: '8px',
+                        border: '1px solid rgb(218, 218, 218)',
+                        padding: '12px',
+                        boxSizing: 'border-box',
+                      }}
+                      type='password'
+                    />
+                  </IonItem>
+                </>
+              )}
+              {currentTab === 'login' && (
+                <>
+                  <IonItem lines='none'>
+                    <IonLabel>Password</IonLabel>
+                  </IonItem>
+                  <IonItem lines='none'>
+                    <input
+                      placeholder='Password'
+                      style={{
+                        width: '100%',
+                        height: '48px',
+                        borderRadius: '8px',
+                        border: '1px solid rgb(218, 218, 218)',
+                        padding: '12px',
+                        boxSizing: 'border-box',
+                      }}
+                      type='password'
+                    />
+                  </IonItem>
+                </>
+              )}
+            </div>
+          )}
           <div>
             <IonRow>
               <IonCol style={{ textAlign: 'center' }}>
-                <IonButton expand='block' size='large' className='sign-up-btn'>
+                <IonButton
+                  onClick={navigateProfile}
+                  expand='block'
+                  size='large'
+                  className='sign-up-btn'
+                >
                   <b>
-                    <IonText>Sign up</IonText>
+                    <IonText>
+                      {currentTab === 'sign-up' ? 'Sign up' : 'Login'}
+                    </IonText>
                   </b>
                 </IonButton>
               </IonCol>
@@ -155,7 +213,9 @@ function Example({ closeModal }: ExampleProps) {
                     }}
                   >
                     <IonIcon size='' color='danger' icon={logoGoogle} />
-                    <IonText>Sign up with Google</IonText>
+                    <IonText>{`${
+                      currentTab === 'sign-up' ? 'Sign up' : 'Login'
+                    } with Google`}</IonText>
                     <b></b>
                   </div>
                 </IonButton>

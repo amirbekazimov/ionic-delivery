@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
   padding: 0;
   margin-top: 130px;
@@ -14,8 +14,46 @@
   margin: 0 auto;
   --background: rgb(245, 0, 19);
 }
+
 .sign-up-google-btn {
   width: 256px;
   margin: 0 auto;
   --background: rgb(244, 244, 244);
 }
+
+.segment-active {
+    --background: none 
+    --border-style:none;
+    --indicator-box-shadow:none;
+  
+  
+  }
+  
+  .segment-active ion-segment-button {
+    --indicator-box-shadow: transparent !important;
+    --background:none;
+    --color:gray;
+    --background-checked: transparent !important;
+    --border-style:none;
+    --color-checked: rgba(245,0,18);
+    --indicator-color: transparent !important;
+    font-size: 18px;
+    border-radius: .5rem !important;
+    padding: 2px;
+    height: 55px;
+    margin: 0;
+    }
+  
+  .segment-indicator {
+    background-color: transparent;
+    height: 3px;
+    width: 77px; 
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .segment-active ion-segment-button.segment-button-checked .segment-indicator {
+      background-color: rgb(245, 0, 18);
+    }

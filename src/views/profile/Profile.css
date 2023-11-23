@@ -1,0 +1,17 @@
+.profile-back-btn {
+  --background: rgba(255, 229, 229);
+}
+
+.profile-back-icon {
+  color: red !important;
+}
+
+.profile-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 10px 0;
+}
+
+.profile-btn {
+  --background: rgb(245, 0, 19);
+}
