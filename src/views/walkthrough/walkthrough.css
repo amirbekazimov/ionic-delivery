@@ -1,0 +1,11 @@
+.walkthrough-btn {
+  --background: rgb(245, 0, 19);
+  width: 157px;
+}
+
+.walkthrough-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
