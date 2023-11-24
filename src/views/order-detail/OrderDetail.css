@@ -1,0 +1,11 @@
+.detail-icon-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 30%;
+  background-color: rgb(255, 229, 229);
+  font-size: 22px;
+  text-align: center;
+}

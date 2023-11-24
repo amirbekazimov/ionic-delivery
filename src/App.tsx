@@ -11,13 +11,15 @@ import {
   setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { cart, ellipse, home, person, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import { Walkthrough } from './views/walkthrough/Walkthrough';
 import { Profile } from './views/profile/Profile';
-
+import { ProductDetail } from './views/product-detail/ProductDetail';
+import { OrderDetail } from './views/order-detail/OrderDetail';
+import { Complete } from './views/complete/Complete';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -63,22 +65,28 @@ const App: React.FC = () => (
           <Route path='/product-list'>
             <ProductList />
           </Route>
+          <Route path='/product-detail'>
+            <ProductDetail />
+          </Route>
+          <Route path='/order-detail'>
+            <OrderDetail />
+          </Route>
+          <Route path='/complete'>
+            <Complete />
+          </Route>
           <Route exact path='/'>
             <Redirect to='/walkthrough' />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot='bottom'>
+        <IonTabBar style={{ borderTop: 'none' }} slot='bottom'>
           <IonTabButton tab='tab1' href='/tab1'>
-            <IonIcon aria-hidden='true' icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonIcon color='danger' aria-hidden='true' icon={home} />
           </IonTabButton>
           <IonTabButton tab='tab2' href='/tab2'>
-            <IonIcon aria-hidden='true' icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonIcon color='danger' aria-hidden='true' icon={person} />
           </IonTabButton>
           <IonTabButton tab='tab3' href='/tab3'>
-            <IonIcon aria-hidden='true' icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonIcon color='danger' aria-hidden='true' icon={cart} />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

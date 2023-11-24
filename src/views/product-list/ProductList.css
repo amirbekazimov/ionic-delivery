@@ -16,6 +16,7 @@ ion-searchbar .searchbar-input-container {
   --color-checked: white !important;
   height: 45px;
   width: 161px;
+  text-align: center;
 }
 
 .product-segment ion-segment-button {

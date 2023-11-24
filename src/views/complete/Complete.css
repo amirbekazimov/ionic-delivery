@@ -1,0 +1,11 @@
+.complete-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.complete-submit-btn {
+  --background: rgb(245, 0, 19);
+}

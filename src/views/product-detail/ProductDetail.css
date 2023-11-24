@@ -1,0 +1,36 @@
+.red-btn {
+  --background: rgb(255, 229, 229);
+  height: 20px !important;
+}
+
+.detail-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgb(255, 229, 229);
+  font-size: 22px;
+  text-align: center;
+}
+.detail-icon:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgb(229, 229, 229);
+  font-size: 22px;
+  text-align: center;
+}
+
+.add-cart-btn {
+  --border-radius: 7px;
+  --background: rgb(245, 0, 19);
+}
+
+.product-detail-modal {
+  margin-top: 250px;
+}
