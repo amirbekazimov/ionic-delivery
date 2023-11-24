@@ -55,3 +55,7 @@
   .segment-active ion-segment-button.segment-button-checked .segment-indicator {
       background-color: rgb(245, 0, 18);
     }
+
+    .modal-toolbar{
+      --background:transparent;
+    }

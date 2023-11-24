@@ -9,3 +9,8 @@
 .complete-submit-btn {
   --background: rgb(245, 0, 19);
 }
+
+ion-button {
+  --background-hover: rgb(245, 0, 19);
+  --background-activated: rgb(245, 0, 19);
+}

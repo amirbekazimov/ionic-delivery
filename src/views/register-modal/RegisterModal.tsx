@@ -52,29 +52,37 @@ function Example({ closeModal }: ExampleProps) {
   }
 
   const navigateProfile = () => {
-    history.push('/profile');
+    history.push('/product-list');
     closeModal();
   };
 
   return (
     <IonModal
       ref={modal}
+      // @ts-ignore
       cssClass={`modal-custom ${canDismiss ? '' : 'modal-hidden'}`}
       canDismiss={canDismiss}
       presentingElement={presentingElement}
       animation='ios-transition'
     >
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Modal</IonTitle>
-          <IonButtons slot='end'>
-            <IonButton onClick={() => dismiss()}>Close</IonButton>
-          </IonButtons>
+        <IonToolbar class='modal-toolbar' color={'transparent'}>
+          <div
+            onClick={() => dismiss()}
+            style={{
+              width: 58,
+              padding: 5,
+              margin: '0 auto',
+              borderRadius: 10,
+              backgroundColor: 'rgb(255,240,240)',
+            }}
+          ></div>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonSegment
           value={currentTab}
+          // @ts-ignore
           onIonChange={(e) => setCurrentTab(e.detail.value!)}
           className='segment-active'
         >

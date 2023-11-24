@@ -50,7 +50,7 @@ export const ProductList: React.FC = () => {
   const swiperData = [
     {
       id: 1,
-      img: Burger,
+      img: ProductImg,
       title: 'Special Offer for March',
       description: 'We are here with the best desserts in town.',
     },
@@ -107,7 +107,7 @@ export const ProductList: React.FC = () => {
     },
   ];
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: any) => {
     setSelectedCategory(category);
   };
 
@@ -115,12 +115,16 @@ export const ProductList: React.FC = () => {
     selectedCategory === 'all' ? true : product.category === selectedCategory
   );
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <IonPage>
       <IonHeader className='ion-no-border'>
         <IonToolbar color='transparent'>
           <IonRow class='profile-toolbar product-list-toolbar'>
-            <IonButton className='profile-back-btn'>
+            <IonButton onClick={goBack} className='profile-back-btn'>
               <IonIcon color='danger' icon={chevronBackOutline} />
             </IonButton>
             <IonText
@@ -173,7 +177,7 @@ export const ProductList: React.FC = () => {
                       <div className='swiper-custom-pagination'>
                         {current} / {total}
                       </div>
-                    );
+                    ).toString();
                   },
                 }}
                 onSlideChange={(swiper) => {

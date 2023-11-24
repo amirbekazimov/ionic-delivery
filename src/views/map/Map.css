@@ -1,0 +1,33 @@
+.map-page {
+  --background: url(../../assets/images/maps.png);
+  background-size: cover;
+}
+
+.location-btn {
+  --background: rgb(245, 0, 18);
+}
+
+.navigator-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 45px auto;
+  width: 216px;
+  height: 216px;
+  background: url(../../assets/images/navigator.png);
+}
+
+.navigator-box-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: url(../../assets/images/Ellipse.png);
+}
+
+.navigator-locator-img {
+  width: 30px;
+  height: 30px;
+  background: url(../../assets/images/placeholder.png);
+}

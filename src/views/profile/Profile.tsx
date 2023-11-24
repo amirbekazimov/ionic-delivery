@@ -33,12 +33,16 @@ export const Profile: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const history = useHistory();
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <IonPage>
       <IonHeader className='ion-no-border'>
         <IonToolbar color='transparent'>
           <IonRow class='profile-toolbar'>
-            <IonButton className='profile-back-btn'>
+            <IonButton onClick={goBack} className='profile-back-btn'>
               <IonIcon color='danger' icon={chevronBackOutline} />
             </IonButton>
             <IonButton className='profile-back-btn'>
@@ -141,7 +145,6 @@ export const Profile: React.FC = () => {
         </IonGrid>
         <IonFooter>
           <IonButton
-            onClick={() => history.push('/login')}
             expand='block'
             className='profile-btn'
             style={{ margin: '0 16px' }}

@@ -21,7 +21,7 @@ export const Complete: React.FC = () => {
   const modal = useRef<HTMLIonModalElement>(null);
   return (
     <IonPage>
-      <IonContent class='ion-padding'>
+      <IonContent fullscreen class='ion-padding'>
         <img
           alt='Pattern'
           src={Pattern}
